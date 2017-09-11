@@ -12,9 +12,13 @@ end
 % the links for each link.
 
 % Parameters t1, t2, t3 are the joint angles.
-t1 = input('Enter theta 1 in radians\n');
-t2 = input('Enter theta 2 in radians\n');
-t3 = input('Enter theta 3 in radians\n');
+t1 = input('Enter theta 1 in degrees\n');
+t2 = input('Enter theta 2 in degrees\n');
+t3 = input('Enter theta 3 in degrees\n');
+t1 = t1 * (pi / 180);
+t2 = t2 * (pi / 180);
+t3 = t3 * (pi / 180);
+% angles between previous and next x axes are denoted by theta.
 theta1 = t1;
 theta2 = t2 - pi;
 theta3 = t3 - pi;
