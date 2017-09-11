@@ -1,6 +1,6 @@
 % Initial points of the 3 arms
-x = [0 0 1 1];
-y = [0 1 1 0];
+x = [0 1 2 3];
+y = [0 0 0 0];
 
 % Draw lines in initial positions
 for i = 1 : 3
@@ -12,10 +12,12 @@ end
 % the links for each link.
 % theta = angle from old x to new x along old z axis
 % but z axis is same due to planar nature of arm.
-
-theta1 = pi / 2;
-theta2 = pi / 4;
-theta3 = pi / 4;
+t1 = input('Enter theta 1 in radians\n');
+t2 = input('Enter theta 2 in radians\n');
+t3 = input('Enter theta 3 in radians\n');
+theta1 = t1;
+theta2 = -pi + t2;
+theta3 = t3 - pi;
 
 % transformation matrices
 
