@@ -19,9 +19,7 @@ theta3 = pi / 3;
 
 % transformation matrices
 % rotation matrices
-R1 = Rotate(theta1);
-R2 = Rotate(theta2);
-R3 = Rotate(theta3);
+
 
 line([x(1), x(2)], [y(1), y(2)]);
 line([x(2), x(3)], [y(2), y(3)]);
