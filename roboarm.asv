@@ -3,7 +3,8 @@ x = [0 2 3.5 4.5];
 y = [0 0 0 0];
 
 % Draw lines in initial positions
-line(x, y);
+l = line(x, y);
+% Fix axes
 axis([-6 6 -6 6]);
 
 % I am assuming the reference frames' x axes along the length of
@@ -13,9 +14,15 @@ axis([-6 6 -6 6]);
 % t1 = input('Enter theta 1 in degrees\n');
 % t2 = input('Enter theta 2 in degrees\n');
 % t3 = input('Enter theta 3 in degrees\n');
-t1 = 60;
-t2 = 120;
-t3 = 240;
+
+% Giving input directly so we can see complete animation.
+% Uncomment above lines 14 to 16 and comment out lines 22 to 24
+% to take input from command window.
+
+t1 = 80;
+t2 = 140;
+t3 = 250;
+
 t1 = t1 * (pi / 180);
 t2 = t2 * (pi / 180);
 t3 = t3 * (pi / 180);
@@ -28,9 +35,13 @@ theta3 = t3 - pi;
 % Product of all 3 angles will be a multiple of LCM of 3 angles
 theta = theta1 * theta2 * theta3;
 
+if theta < 0
+    theta = -theta;
+end
+
 % Running a for loop to obtain animation
 
-for i = 0 : 0.1 : theta
+for i = 0 : 0.001 : theta
     
     tt1 = (i * theta1) ./ (theta);
     tt2 = (i * theta2) ./ (theta);
@@ -50,19 +61,31 @@ for i = 0 : 0.1 : theta
     T4 = Translate(1);
 
     % finding second point
+    
+    % transformation matrix
     Y = R1 * T2;
+    
+    % Finding coordinates
     Y1 = Y * [0; 0; 0; 1];
     x(2) = Y1(1);
     y(2) = Y1(2);
 
     % finding third point
+    
+    % transformation matrix
     Y = R1 * T2 * R2 * T3;
+    
+    
     Y1 = Y * [0; 0; 0; 1];
     x(3) = Y1(1);
     y(3) = Y1(2);
 
     % finding fourth point
+    
+    % transformation matrix
     Y = R1 * T2 * R2 * T3 * R3 * T4;
+    
+    
     Y1 = Y * [0; 0; 0; 1];
     x(4) = Y1(1);
     y(4) = Y1(2);
@@ -75,6 +98,13 @@ for i = 0 : 0.1 : theta
     % disp(length1);
     % disp(length2);
     % disp(length3);
-    line(x, y);
-    axis([-6 6 -6 6
+    
+    % delete the line already drawn so that it is not seen when next
+    % line gets drawn.
+    delete(l);
+    % draw line and fix axes
+    l = line(x, y);
+    axis([-6 6 -6 6]);
+    % wait for 0.001 seconds before moving to next iteration.
+    pause(0.001);
 end
