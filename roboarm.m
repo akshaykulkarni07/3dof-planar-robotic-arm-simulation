@@ -3,10 +3,8 @@ x = [0 2 3.5 4.5];
 y = [0 0 0 0];
 
 % Draw lines in initial positions
-for i = 1 : 3
-    line([x(i), x(i + 1)], [y(i), y(i + 1)]);
-    axis([-6 6 -6 6]);
-end
+line(x, y);
+axis([-6 6 -6 6]);
 
 % I am assuming the reference frames' x axes along the length of
 % the links for each link.
@@ -62,6 +60,4 @@ length3 = (((x(3) - x(4)) .^ 2) + ((y(3) - y(4)) .^ 2)) .^ (0.5);
 disp(length1);
 disp(length2);
 disp(length3);
-line([x(1), x(2)], [y(1), y(2)]);
-line([x(2), x(3)], [y(2), y(3)]);
-line([x(3), x(4)], [y(3), y(4)]);
+line(x, y);
