@@ -13,9 +13,9 @@ end
 % theta = angle from old x to new x along old z axis
 % but z axis is same due to planar nature of arm.
 
-theta1 = pi / 6;
+theta1 = pi / 4;
 theta2 = pi / 4;
-theta3 = pi / 3;
+theta3 = pi / 4;
 
 % transformation matrices
 
@@ -30,19 +30,19 @@ T2 = Translate(1);
 
 % finding second point
 Y = R1 * T2;
-Y1 = Y * [x(2); y(2); 1];
+Y1 = Y * [x(2); y(2); 0; 1];
 x(2) = Y1(1);
 y(2) = Y1(2);
 
 % finding third point
 Y = R1 * T2 * R2 * T2;
-Y1 = Y * [x(3); y(3); 1];
+Y1 = Y * [x(3); y(3); 0; 1];
 x(3) = Y1(1);
 y(3) = Y1(2);
 
 % finding fourth point
 Y = R1 * T2 * R2 * T2 * R3 * T2;
-Y1 = Y * [x(4); y(4); 1];
+Y1 = Y * [x(4); y(4); 0; 1];
 x(4) = Y1(1);
 y(4) = Y1(2);
 
