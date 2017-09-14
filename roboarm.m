@@ -5,6 +5,10 @@
 x = [0 2 3.5 4.5];
 y = [0 0 0 0];
 
+% show the ground line
+yy = -6 : 0.01 : 6;
+plot(yy, 0);
+
 % Draw lines in initial positions
 l = line(x, y);
 % Fix axes
@@ -22,9 +26,9 @@ axis([-6 6 -6 6]);
 % Uncomment above lines 14 to 16 and comment out lines 22 to 24
 % to take input from command window.
 
-t1 = 80;
-t2 = 140;
-t3 = 250;
+t1 = 60;
+t2 = 120;
+t3 = 160;
 
 t1 = t1 * (pi / 180);
 t2 = t2 * (pi / 180);
