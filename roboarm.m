@@ -28,7 +28,7 @@ axis([-6 6 -6 6]);
 
 t1 = 60;
 t2 = 120;
-t3 = 160;
+t3 = 150;
 
 t1 = t1 * (pi / 180);
 t2 = t2 * (pi / 180);
@@ -114,5 +114,5 @@ for i = 0 : 0.001 : theta
     l = line(x, y);
     axis([-6 6 -6 6]);
     % wait for 0.001 seconds before moving to next iteration.
-    pause(0.001);
+    pause(0.00001);
 end
