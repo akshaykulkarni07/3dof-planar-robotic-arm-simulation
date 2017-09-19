@@ -1,13 +1,16 @@
 % MATLAB code to perform forward kinematics and simulate the working of
 % a 3 DOF robotic arm, given the joint angles.
 
+% Taking input before showing initial positions.
+fprintf('Enter theta 1, theta 2, theta 3 in degrees\n');
+% Parameters t1, t2, t3 are the joint angles.
+t1 = input('');
+t2 = input('');
+t3 = input('');
+
 % Initial positions of the joints of the 3 arms
 x = [0 2 3.5 4.5];
 y = [0 0 0 0];
-
-% show the ground line
-yy = -6 : 0.01 : 6;
-plot(yy, 0);
 
 % Draw lines in initial positions
 l = line(x, y);
@@ -16,19 +19,6 @@ axis([-6 6 -6 6]);
 
 % I am assuming the reference frames' x axes along the length of
 % the links for each link.
-
-% Parameters t1, t2, t3 are the joint angles.
-% t1 = input('Enter theta 1 in degrees\n');
-% t2 = input('Enter theta 2 in degrees\n');
-% t3 = input('Enter theta 3 in degrees\n');
-
-% Giving input directly so we can see complete animation.
-% Uncomment above lines 14 to 16 and comment out lines 22 to 24
-% to take input from command window.
-
-t1 = 60;
-t2 = 120;
-t3 = 150;
 
 t1 = t1 * (pi / 180);
 t2 = t2 * (pi / 180);
@@ -48,7 +38,7 @@ end
 
 % Running a for loop to obtain animation
 
-for i = 0 : 0.001 : theta
+for i = 0 : 0.003 : theta
     
     tt1 = (i * theta1) ./ (theta);
     tt2 = (i * theta2) ./ (theta);
@@ -114,5 +104,5 @@ for i = 0 : 0.001 : theta
     l = line(x, y);
     axis([-6 6 -6 6]);
     % wait for 0.001 seconds before moving to next iteration.
-    pause(0.00001);
+    pause(0.01);
 end
