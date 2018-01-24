@@ -14,8 +14,18 @@ y = [0 0 0 0];
 
 % Draw lines in initial positions
 l = line(x, y);
+hold on;
+l1 = plot(x(1), y(1), '-');
+l2 = plot(x(2), y(2), '-');
+l3 = plot(x(3), y(3), '-');
+l4 = plot(x(4), y(4), '-');
+l5 = plot(x(1), y(1), 's');
+l6 = plot(x(2), y(2), 's');
+l7 = plot(x(3), y(3), 's');
+l8 = plot(x(4), y(4), 's');
+
 % Fix axes
-axis([-6 6 -6 6]);
+axis([-5 5 -5 5]);
 
 % I am assuming the reference frames' x axes along the length of
 % the links for each link.
@@ -26,12 +36,13 @@ t3 = t3 * (pi / 180);
 
 % angles between previous and next x axes are denoted by theta.
 theta1 = t1;
-theta2 = t2 - pi;
-theta3 = t3 - pi;
+theta2 = t2;
+theta3 = t3;
 
 % Product of all 3 angles will be a multiple of LCM of 3 angles
 theta = theta1 * theta2 * theta3;
 
+% Accounting for negative values of angles.
 if theta < 0
     theta = -theta;
 end
@@ -100,9 +111,22 @@ for i = 0 : 0.003 : theta
     % delete the line already drawn so that it is not seen when next
     % line gets drawn.
     delete(l);
+    delete(l5);
+    delete(l6);
+    delete(l7);
+    delete(l8);
     % draw line and fix axes
     l = line(x, y);
-    axis([-6 6 -6 6]);
-    % wait for 0.001 seconds before moving to next iteration.
+    hold on;
+    l1 = plot(x(1), y(1), '-');
+    l2 = plot(x(2), y(2), '-');
+    l3 = plot(x(3), y(3), '-');
+    l4 = plot(x(4), y(4), '-');
+    l5 = plot(x(1), y(1), 's');
+    l6 = plot(x(2), y(2), 's');
+    l7 = plot(x(3), y(3), 's');
+    l8 = plot(x(4), y(4), 's');
+    axis([-5 5 -5 5]);
+    % wait for 0.01 seconds before moving to next iteration.
     pause(0.01);
 end
