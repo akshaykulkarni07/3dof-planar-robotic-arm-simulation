@@ -13,6 +13,7 @@ x = [0 2 3.5 4.5];
 y = [0 0 0 0];
 
 % Draw lines in initial positions
+grid on;
 l = line(x, y);
 hold on;
 l1 = plot(x(1), y(1), '-');
@@ -118,14 +119,18 @@ for i = 0 : 0.003 : theta
     % draw line and fix axes
     l = line(x, y);
     hold on;
-    l1 = plot(x(1), y(1), '-');
-    l2 = plot(x(2), y(2), '-');
-    l3 = plot(x(3), y(3), '-');
-    l4 = plot(x(4), y(4), '-');
-    l5 = plot(x(1), y(1), 's');
-    l6 = plot(x(2), y(2), 's');
-    l7 = plot(x(3), y(3), 's');
-    l8 = plot(x(4), y(4), 's');
+    l1 = plot(x(1), y(1), 'r.');
+    l2 = plot(x(2), y(2), 'r.');
+    l3 = plot(x(3), y(3), 'r.');
+    l4 = plot(x(4), y(4), 'ro');
+    l1.MarkerSize = 1;
+    l2.MarkerSize = 1;
+    l3.MarkerSize = 1;
+    l4.MarkerSize = 5;
+    l5 = plot(x(1), y(1), 'gs');
+    l6 = plot(x(2), y(2), 'gs');
+    l7 = plot(x(3), y(3), 'gs');
+    l8 = plot(x(4), y(4), 'gs');
     axis([-5 5 -5 5]);
     % wait for 0.01 seconds before moving to next iteration.
     pause(0.01);
